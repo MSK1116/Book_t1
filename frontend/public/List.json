@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "title": "University Of Physics",
+    "author": "Freedman",
+    "published": "2020",
+    "page": 300,
+    "category": "Physics",
+    "image": "https://www.cityofboise.org/media/14754/shutterstock_523462210.jpg"
+  },
+  {
+    "id": 2,
+    "title": "The Art of War",
+    "author": "Sun Tzu",
+    "published": "2020",
+    "page": 120,
+    "category": "Military Strategy",
+
+    "by": "Manish",
+    "image": "https://www.cityofboise.org/media/14754/shutterstock_523462210.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "published": "2020",
+    "page": 350,
+    "category": "free",
+    "by": "Manish",
+    "image": "https://www.cityofboise.org/media/14754/shutterstock_523462210.jpg"
+  },
+  {
+    "id": 4,
+    "title": "The Hitchhiker's Guide to the Galaxy",
+    "author": "Douglas Adams",
+    "published": "2020",
+    "page": 250,
+    "category": "Science Fiction",
+    "by": "Manish",
+    "image": "https://www.cityofboise.org/media/14754/shutterstock_523462210.jpg"
+  },
+  {
+    "id": 5,
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "published": "2020",
+    "page": 200,
+    "category": "free",
+    "by": "Manish",
+    "image": "https://www.cityofboise.org/media/14754/shutterstock_523462210.jpg"
+  },
+  {
+    "id": 6,
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "published": "2020",
+    "page": 320,
+    "category": "free",
+    "by": "Manish",
+    "image": "https://www.cityofboise.org/media/14754/shutterstock_523462210.jpg"
+  },
+  {
+    "id": 7,
+    "title": "1984",
+    "author": "George Orwell",
+    "published": "2020",
+    "page": 280,
+    "category": "Dystopian Fiction",
+    "by": "Manish",
+    "image": "https://www.cityofboise.org/media/14754/shutterstock_523462210.jpg"
+  }
+]
