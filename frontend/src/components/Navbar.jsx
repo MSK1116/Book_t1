@@ -36,29 +36,29 @@ const Navbar = () => {
   const navItems = (
     <>
       <li>
-        <Link to="/">
-          <a>Home</a>
-        </Link>
+        <span>
+          <a href="/">Home</a>
+        </span>
       </li>
       <li>
-        <Link to="/books">
-          <a>Books</a>
-        </Link>
+        <span>
+          <a href="/books">Books</a>
+        </span>
       </li>
       <li>
-        <Link to="/donate">
-          <a>Donate</a>
-        </Link>
+        <span>
+          <a href="/donate">Donate</a>
+        </span>
       </li>
       <li>
-        <Link>
+        <span>
           <a>Contact</a>
-        </Link>
+        </span>
       </li>
       <li>
-        <Link>
+        <span>
           <a>About</a>
-        </Link>
+        </span>
       </li>
     </>
   );

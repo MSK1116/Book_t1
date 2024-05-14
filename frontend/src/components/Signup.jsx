@@ -1,45 +1,55 @@
 import React from "react";
 
-import Login from "./Login";
+import { useForm } from "react-hook-form";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 function Signup() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => console.log(data);
+
   return (
-    <div className="bg-white-500 min-h-screen flex flex-col">
-      <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-4">
-        <div className="bg-white px-8 py-10 rounded shadow-md text-black w-full">
-          <h1 className="mb-8 text-3xl text-center">Sign up</h1>
-          <input type="text" className="block border border-gray-300 w-full p-3 rounded mb-4" name="fullname" placeholder="Full Name" />
+    <>
+      <Navbar />
+      <div className="bg-white-500 min-h-screen flex flex-col">
+        <div className="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-4">
+          <div className="bg-white dark:bg-slate-800 mt-10 px-8 py-10 rounded shadow-md text-black w-full">
+            <h1 className="mb-8 text-3xl text-center dark:text-white">Sign up</h1>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <input {...register("fullName", { required: true })} type="text" className="block border border-gray-300 w-full p-3 rounded mb-4" name="fullname" placeholder="Full Name" />
+              {errors.fullName && <span className="text-sm text-red-500 ">This field is required</span>}
 
-          <input type="text" className="block border border-gray-300 w-full p-3 rounded mb-4" name="email" placeholder="Email" />
+              <input {...register("email", { required: true })} type="text" className="block border border-gray-300 w-full p-3 rounded mb-4" name="email" placeholder="Email" />
+              {errors.email && <span className="text-sm text-red-500 ">This field is required</span>}
 
-          <input type="password" className="block border border-gray-300 w-full p-3 rounded mb-4" name="password" placeholder="Password" />
-          <input type="password" className="block border border-gray-300 w-full p-3 rounded mb-4" name="confirm_password" placeholder="Confirm Password" />
+              <input {...register("password", { required: true })} type="password" className="block border border-gray-300 w-full p-3 rounded mb-4" name="password" placeholder="Password" />
+              {errors.password && <span className="text-sm text-red-500 ">This field is required</span>}
 
-          <button type="submit" className="w-full text-center py-3 rounded bg-green-500 text-white hover:bg-green-600 focus:outline-none my-1">
-            Create Account
-          </button>
+              <input {...register("confirm_pwd", { required: true })} type="password" className="block border border-gray-300 w-full p-3 rounded mb-4" name="confirm_password" placeholder="Confirm Password" />
+              {errors.confirm_pwd && <span className="text-sm text-red-500 ">This field is required</span>}
+              <button type="submit" className="w-full text-center py-3 rounded bg-green-500 text-white hover:bg-green-600 focus:outline-none my-1">
+                Create Account
+              </button>
 
-          <div className="text-center text-sm text-gray-700 mt-4">
-            By signing up, you agree to the
-            <a className="no-underline border-b border-gray-700 text-gray-700" href="#">
-              Terms of Service
-            </a>{" "}
-            and
-            <a className="no-underline border-b border-gray-700 text-gray-700" href="#">
-              Privacy Policy
-            </a>
+              <div className="text-center text-sm text-gray-700 mt-4">
+                By signing up, you agree to the
+                <a className="no-underline border-b border-gray-700 text-gray-700" href="#">
+                  Terms of Service
+                </a>
+                and
+                <a className="no-underline border-b border-gray-700 text-gray-700" href="#">
+                  Privacy Policy
+                </a>
+              </div>
+            </form>
           </div>
         </div>
-
-        <div className="text-gray-700 mt-6">
-          Already have an account?<span> </span>
-          <span onClick={() => document.getElementById("loginModal").showModal()} className="no-underline border-b border-blue-500 text-yellow-500 cursor-pointer">
-            Log in
-          </span>
-          .
-          <Login />
-        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 }
 
