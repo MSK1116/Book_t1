@@ -1,16 +1,22 @@
 import React from "react";
-import Navbar from "./components/Navbar";
-import Banner from "./components/Banner";
-import Footer from "./components/Footer";
-import Freebook from "./components/Freebook";
+import Home from "./Home/Home";
+import Books from "./books/Books";
+import Donate from "./donate/Donate";
+
+import { Route, Routes } from "react-router-dom";
+import Signup from "./components/Signup";
 
 function App() {
   return (
     <>
-      <Navbar />
-      <Banner />
-      <Freebook></Freebook>
-      <Footer />
+      <div className="dark:bg-slate-900 dark:text-white">
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/books" element={<Books />}></Route>
+          <Route path="/donate" element={<Donate />}></Route>
+          <Route path="/register" element={<Signup />} />
+        </Routes>
+      </div>
     </>
   );
 }

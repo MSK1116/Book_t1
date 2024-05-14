@@ -10,15 +10,15 @@ const Banner = () => {
             Welcome to ETN Book Donation campaign.<br></br> <span className="text-3xl font-bold text-yellow-400">"Seving Society Via Technology"</span>
           </h1>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere nemo, quam et, ut optio ratione modi laborum quasi a repudiandae tenetur voluptates repellat vero, alias qui amet ipsa minima harum?</p>
-          <label className="input input-bordered flex items-center gap-2">
+          <label className="input input-bordered flex items-center dark:text-black gap-2">
             Email
             <input type="text" className="grow" placeholder="daisy@site.com" />
           </label>
-          <button className="btn bg-yellow-400 hover:bg-slate-200 mt-2">Be Techso</button>
+          <button className="btn bg-yellow-400 hover:bg-slate-200 mt-2">Be TechSo</button>
         </div>
 
         <div className=" order-1 md:order-2 w-full md:w-1/2">
-          <img className="mx-auto p-auto w-100 h-100" src={img1}></img>
+          <img className="mx-auto p-auto mt-10 w-100 h-100" src={img1}></img>
         </div>
       </div>
     </>

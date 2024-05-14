@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <diV>
+      <div>
         <footer className="footer footer-center p-8 bg-yellow-400  text-primary-content top-0 right-0 left-0 z-50">
           <aside>
             <svg width="50" height="30" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd" className="inline-block fill-current">
@@ -35,7 +35,7 @@ const Footer = () => {
             </div>
           </nav>
         </footer>
-      </diV>
+      </div>
     </>
   );
 };
