@@ -20,7 +20,7 @@ const Navbar = () => {
     };
   }, []);
 
-  const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light");
+  const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : localStorage.setItem("theme", "light"));
   useEffect(() => {
     if (theme === "dark") {
       element.classList.add("dark");
@@ -28,44 +28,41 @@ const Navbar = () => {
       document.body.classList.add("dark");
     } else {
       element.classList.remove("dark");
-      localStorage.setItem("theme", "dark");
       document.body.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
   }, [theme]);
   const element = document.documentElement;
+
   const navItems = (
     <>
       <li>
-        <span>
-          <a href="/">Home</a>
-        </span>
+        <Link to="/">
+          <a>Home</a>
+        </Link>
       </li>
       <li>
-        <span>
-          <a href="/books">Books</a>
-        </span>
+        <Link to="/books">
+          <a>Books</a>
+        </Link>
       </li>
       <li>
-        <span>
-          <a href="/donate">Donate</a>
-        </span>
+        <Link to="/donate">
+          <a>Donate</a>
+        </Link>
       </li>
       <li>
-        <span>
-          <a>Contact</a>
-        </span>
+        <a>Contact</a>
       </li>
       <li>
-        <span>
-          <a>About</a>
-        </span>
+        <a>About</a>
       </li>
     </>
   );
   return (
     <div
       className={`max-w-screen-2xl container mx-auto md:px-20px px-4 dark:bg-slate-900 dark:text-white fixed top-0 right-0 left-0 z-50 ${
-        sticky ? "sticky-navbar shadow-md bg-base-200 duration-300 dark:bg-slate-800 dark:text-white transition-all ease-in-out" : ""
+        sticky ? "sticky-navbar shadow-md bg-gray-200 duration-300 dark:bg-slate-800 dark:text-white transition-all ease-in-out" : ""
       }`}>
       <div className="navbar ">
         <div className="navbar-start">
@@ -89,8 +86,8 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:block ">
-            <label className="input bordered-input py-2 px-3  rounded-sm flex items-center gap-2">
-              <input type="text" className="grow outline-none  dark:text-black" placeholder="Type on me" />
+            <label className="input bordered-input py-2 px-3 bg-white  rounded-sm flex items-center gap-2">
+              <input type="text" className="grow outline-none   dark:text-black" placeholder="Type on me" />
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70">
                 <path fillRule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clipRule="evenodd" />
               </svg>

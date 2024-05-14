@@ -15,7 +15,7 @@ const Login = () => {
     <>
       <div>
         <dialog id="loginModal" className="modal">
-          <div className="modal-box dark:bg-slate-500">
+          <div className="modal-box bg-white dark:bg-slate-500">
             <form method="dialog">
               <a href="/">
                 <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 dark:text-white">✕</button>

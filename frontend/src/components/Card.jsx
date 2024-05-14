@@ -3,8 +3,8 @@ import React from "react";
 function Cards({ item }) {
   return (
     <>
-      <div className="mt-2 p-4">
-        <div className="card w-92 p-3 bg-base-100 dark:bg-slate-900 dark:text-white dark:border hover:scale-105  duration-200 shadow-xl ">
+      <div className="mt-2 p-5">
+        <div className="card w-90 p-3 bg-gray-100 dark:bg-slate-900 dark:text-white dark:border hover:scale-105  duration-200 shadow-xl ">
           <figure>
             <img src={item.image} alt="Shoes" />
           </figure>
@@ -18,7 +18,7 @@ function Cards({ item }) {
               <div className="badge badge-outline">Donated By: {item.by}</div>
             </div>
             <div className="card-actions flex justify-center mt-5">
-              <button className="btn  bg-white-400 hover:bg-slate-200">Request</button>
+              <button className="btn border-0 text-white bg-yellow-400 hover:bg-yellow-500">Request</button>
             </div>
           </div>
         </div>

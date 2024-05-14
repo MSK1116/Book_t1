@@ -19,18 +19,18 @@ function Signup() {
           <div className="bg-white dark:bg-slate-800 mt-10 px-8 py-10 rounded shadow-md text-black w-full">
             <h1 className="mb-8 text-3xl text-center dark:text-white">Sign up</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <input {...register("fullName", { required: true })} type="text" className="block border border-gray-300 w-full p-3 rounded mb-4" name="fullname" placeholder="Full Name" />
+              <input {...register("fullName", { required: true })} type="text" className="block border border-gray-300 w-full bg-white p-3 rounded mb-4" name="fullname" placeholder="Full Name" />
               {errors.fullName && <span className="text-sm text-red-500 ">This field is required</span>}
 
-              <input {...register("email", { required: true })} type="text" className="block border border-gray-300 w-full p-3 rounded mb-4" name="email" placeholder="Email" />
+              <input {...register("email", { required: true })} type="text" className="block border border-gray-300 w-full bg-white p-3 rounded mb-4" name="email" placeholder="Email" />
               {errors.email && <span className="text-sm text-red-500 ">This field is required</span>}
 
-              <input {...register("password", { required: true })} type="password" className="block border border-gray-300 w-full p-3 rounded mb-4" name="password" placeholder="Password" />
+              <input {...register("password", { required: true })} type="password" className="block border border-gray-300 bg-white w-full p-3 rounded mb-4" name="password" placeholder="Password" />
               {errors.password && <span className="text-sm text-red-500 ">This field is required</span>}
 
-              <input {...register("confirm_pwd", { required: true })} type="password" className="block border border-gray-300 w-full p-3 rounded mb-4" name="confirm_password" placeholder="Confirm Password" />
+              <input {...register("confirm_pwd", { required: true })} type="password" className="block border border-gray-300 bg-white w-full p-3 rounded mb-4" name="confirm_password" placeholder="Confirm Password" />
               {errors.confirm_pwd && <span className="text-sm text-red-500 ">This field is required</span>}
-              <button type="submit" className="w-full text-center py-3 rounded bg-green-500 text-white hover:bg-green-600 focus:outline-none my-1">
+              <button type="submit" className="w-full text-center py-3 rounded bg-green-500 text-white hover:bg-green-600  focus:outline-none my-1">
                 Create Account
               </button>
 

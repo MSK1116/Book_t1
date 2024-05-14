@@ -9,7 +9,7 @@ import Signup from "./components/Signup";
 function App() {
   return (
     <>
-      <div className="dark:bg-slate-900 dark:text-white">
+      <div className=" bg-white text-slate-800 dark:bg-slate-900  dark:text-white">
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/books" element={<Books />}></Route>
