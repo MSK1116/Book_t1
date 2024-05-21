@@ -29,8 +29,9 @@ function Signup() {
           toast.success("Welcome To TechSo, You're now officialy TechSoian ");
 
           localStorage.setItem("user", JSON.stringify(data));
-          window.location.reload();
+
           navigate(from, { replace: true });
+          window.location.reload();
         }
       })
       .catch((err) => {
