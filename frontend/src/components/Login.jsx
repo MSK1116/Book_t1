@@ -16,12 +16,12 @@ const Login = () => {
       email: data.email,
       password: data.password,
     };
-
+    const toastId = toast.loading("Working...");
     await axios
       .post("https://book-t1.onrender.com/user/login", userInfo)
       .then((res) => {
         if (res.data) {
-          toast.success("Welcome To ETN, you're logged in");
+          toast.success("Welcome To ETN, you're logged in", { id: toastId });
           document.getElementById("loginModal").close();
           localStorage.setItem("user", JSON.stringify(data));
           setTimeout(() => {
@@ -33,7 +33,7 @@ const Login = () => {
         if (err.response) {
           console.log(err);
 
-          toast.error("Login Failed " + err.response.data.message);
+          toast.error("Login Failed " + err.response.data.message, { id: toastId });
         }
       });
   };

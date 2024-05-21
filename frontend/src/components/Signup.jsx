@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
 function Signup() {
   const location = useLocation();
+
   const from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
   const {
@@ -21,12 +22,12 @@ function Signup() {
       email: data.email,
       password: data.password,
     };
-
+    const toastId = toast.loading("Working...");
     await axios
       .post("https://book-t1.onrender.com/user/register", userInfo)
       .then((res) => {
         if (res.data) {
-          toast.success("Welcome To TechSo, You're now officialy TechSoian ");
+          toast.success("Welcome To TechSo, You're now officialy TechSoian ", { id: toastId });
 
           localStorage.setItem("user", JSON.stringify(data));
 
@@ -38,7 +39,7 @@ function Signup() {
         if (err.response) {
           console.log(err);
 
-          toast.error("ERROR: " + err.response.data.message);
+          toast.error("ERROR: " + err.response.data.message, { id: toastId });
         }
       });
   };

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Cards from "./Card";
-
+import toast from "react-hot-toast";
 import axios from "axios";
 
 import { Link } from "react-router-dom";
@@ -9,11 +9,16 @@ const Course = () => {
   const [book, setBook] = useState([]);
   useEffect(() => {
     const getBook = async () => {
+      const toastId = toast.loading("Loading...", {
+        position: "bottom-right",
+      });
       try {
         const res = await axios.get("https://book-t1.onrender.com/book");
         setBook(res.data);
+        toast.dismiss(toastId);
       } catch (error) {
         console.log("failed to get list of books", error);
+        toast.error("Failed to get book", { id: toastId });
       }
     };
     getBook();

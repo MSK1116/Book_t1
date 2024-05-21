@@ -3,7 +3,7 @@ import axios from "axios";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import toast from "react-hot-toast";
 import Slider from "react-slick";
 import Cards from "./Card";
 
@@ -11,11 +11,15 @@ function Freebook() {
   const [book, setBook] = useState([]);
   useEffect(() => {
     const getBook = async () => {
+      const toastID = toast.loading("Molding for you...", {
+        position: "bottom-right",
+      });
       try {
         const res = await axios.get("https://book-t1.onrender.com/book");
         setBook(res.data);
+        toast.dismiss(toastID);
       } catch (error) {
-        console.log("Failed to catch books", error);
+        console.log("Failed to catch books", error, { id: toastID });
       }
     };
     getBook();
