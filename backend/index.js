@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
 import book_route from "../backend/Routes/book_route.js";
+import user_route from "../backend/Routes/user_route.js";
 
 dotenv.config();
 const PORT = process.env.PORT || 4000;
@@ -11,6 +12,8 @@ const app = express();
 
 app.use(cors());
 // connect to mongoDB online
+
+app.use(express.json());
 
 try {
   mongoose.connect(URI);
@@ -21,6 +24,7 @@ try {
 // define route
 
 app.use("/book", book_route);
+app.use("/user", user_route);
 
 app.listen(PORT, () => {
   console.log(`Server listening on PORT ${PORT}`);

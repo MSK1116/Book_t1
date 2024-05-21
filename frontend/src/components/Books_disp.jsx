@@ -10,7 +10,7 @@ const Course = () => {
   useEffect(() => {
     const getBook = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/book");
+        const res = await axios.get("https://book-t1.onrender.com/book");
         setBook(res.data);
       } catch (error) {
         console.log("failed to get list of books", error);

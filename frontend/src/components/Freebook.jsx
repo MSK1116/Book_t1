@@ -1,5 +1,5 @@
-import React from "react";
-import List from "../../public/List.json";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -8,7 +8,19 @@ import Slider from "react-slick";
 import Cards from "./Card";
 
 function Freebook() {
-  const filterData = List.filter((data) => data.category === "free" || data.page > 100);
+  const [book, setBook] = useState([]);
+  useEffect(() => {
+    const getBook = async () => {
+      try {
+        const res = await axios.get("https://book-t1.onrender.com/book");
+        setBook(res.data);
+      } catch (error) {
+        console.log("Failed to catch books", error);
+      }
+    };
+    getBook();
+  }, []);
+  const filterData = book.filter((data) => data.category === "free" || data.page > 100);
 
   var settings = {
     dots: true,
@@ -47,7 +59,7 @@ function Freebook() {
 
   return (
     <>
-      <div className="max-w-screen-2xl container mx-auto md:px-20px px-4 ">
+      <div className="max-w-screen-2xl md:mt-20 mt-10 container mx-auto md:px-20px px-4 ">
         <h2 className="text-xl pb-3  font-semibold">Books</h2>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis id dolorem magnam sapiente cumque aliquid porro laborum perspiciatis consequatur. Modi, assumenda id error accusamus sapiente qui veniam placeat. Quo, hic.</p>
 

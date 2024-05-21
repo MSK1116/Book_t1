@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Login from "./Login";
 import { Link } from "react-router-dom";
+import Logout from "./Logout";
+import { useAuth } from "../context/AuthProvider";
 
 const Navbar = () => {
   const [sticky, setSticky] = useState(false);
@@ -19,6 +21,9 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const [authUser, setAuthUser] = useAuth();
+  console.log(authUser);
 
   const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : localStorage.setItem("theme", "light"));
   useEffect(() => {
@@ -77,7 +82,7 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to="/">
-            <a className="text-2xl font-bold cursor-pointer">ETN Books</a>
+            <a className="text-2xl font-bold cursor-pointer">TechSo Books</a>
           </Link>
         </div>
         <div className="navbar-end space-x-3">
@@ -109,12 +114,16 @@ const Navbar = () => {
             </svg>
           </label>
 
-          <div>
-            <a onClick={() => document.getElementById("loginModal").showModal()} className="btn bg-yellow-400 text-white px-3  py-2 rounded-md hover:bg-slate-800 duration-300 cursor-pointer">
-              Login
-            </a>
-            <Login />
-          </div>
+          {authUser ? (
+            <Logout />
+          ) : (
+            <div>
+              <a onClick={() => document.getElementById("loginModal").showModal()} className="btn bg-yellow-400 text-white px-3  py-2 rounded-md hover:bg-slate-800 duration-300 cursor-pointer">
+                Login
+              </a>
+              <Login />
+            </div>
+          )}
         </div>
       </div>
     </div>

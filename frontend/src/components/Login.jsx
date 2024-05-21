@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const {
@@ -9,7 +11,32 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    const userInfo = {
+      email: data.email,
+      password: data.password,
+    };
+
+    await axios
+      .post("https://book-t1.onrender.com/user/login", userInfo)
+      .then((res) => {
+        if (res.data) {
+          toast.success("Welcome To ETN, you're logged in");
+          document.getElementById("loginModal").close();
+          localStorage.setItem("user", JSON.stringify(data));
+          setTimeout(() => {
+            window.location.reload();
+          }, 2000);
+        }
+      })
+      .catch((err) => {
+        if (err.response) {
+          console.log(err);
+
+          toast.error("Login Failed " + err.response.data.message);
+        }
+      });
+  };
 
   return (
     <>
@@ -44,7 +71,7 @@ const Login = () => {
                   <input
                     {...register("password", { required: true })}
                     type="password"
-                    id="passwordLog"
+                    id="password"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   />
                   {errors.password && <span className="text-sm text-red-500 ">This field is required</span>}
