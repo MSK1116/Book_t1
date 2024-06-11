@@ -60,7 +60,7 @@ function Signup() {
 
               <input {...register("password", { required: true })} type="password" className="block border border-gray-300 bg-white w-full p-3 rounded mb-4" name="password" placeholder="Password" />
               {errors.password && <span className="text-sm text-red-500 ">This field is required</span>}
-
+              {/* more box will be added */}
               <input {...register("confirm_pwd", { required: true })} type="password" className="block border border-gray-300 bg-white w-full p-3 rounded mb-4" name="confirm_pwd" placeholder="Confirm Password" />
               {errors.confirm_pwd && <span className="text-sm text-red-500 ">This field is required</span>}
               <button type="submit" className="w-full text-center py-3 rounded bg-green-500 text-white hover:bg-green-600  focus:outline-none my-1">
