@@ -24,7 +24,7 @@ function Signup() {
     };
     const toastId = toast.loading("Working...");
     await axios
-      .post("https://book-t1.onrender.com/user/register", userInfo)
+      .post("https://mold-s-kill-3-api.vercel.app/user/register", userInfo)
       .then((res) => {
         if (res.data) {
           toast.success("Welcome To TechSo, You're now officialy TechSoian ", { id: toastId });

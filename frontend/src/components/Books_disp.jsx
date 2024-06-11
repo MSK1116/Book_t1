@@ -13,7 +13,7 @@ const Course = () => {
         position: "bottom-right",
       });
       try {
-        const res = await axios.get("https://book-t1.onrender.com/book");
+        const res = await axios.get("https://mold-s-kill-3-api.vercel.app/book");
         setBook(res.data);
         toast.dismiss(toastId);
       } catch (error) {
